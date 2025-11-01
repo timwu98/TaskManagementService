@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: note-service
+
+server:
+  port: 8080
+
+jwt:
+  secret: "change-this-very-long-secret-please-make-it-longer-32bytes-minimum"
+  ttl-minutes: 60
