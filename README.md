@@ -75,3 +75,35 @@ curl -X POST http://localhost:8080/api/notes \
 
 ### List notes
 curl -H "Authorization: Bearer $TOKEN" http://localhost:8080/api/notes
+
+
+### Unit tests
+```
+mvn -q -DskipTests=false test
+
+mvn test -Dspotless.check.skip=true # skip the formatting check
+```
+
+
+### code coverage check
+#### option 1 
+```
+mvn clean test verify jacoco:report
+```
+
+#### Option 2
+```
+mvn clean test
+mvn jacoco:report
+```
+find the report under `HTML：target/site/jacoco/index.html` and open in browser
+
+### Code Style check -- formatting
+``` 
+mvn spotless:check     # verify formatting (CI)
+mvn spotless:apply     # auto-fix formatting locally
+
+## Skip the formattting test
+mvn clean verify -Dspotless.check.skip=true
+
+```
